@@ -1,30 +1,144 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+
+@font-face {
+    font-family: 'Lato', sans-serif;
 }
 
-.menu:before {
-  content: "[";
+
+.search-bar {
+    height: 100px !imporant;
+    width: 100% !important;
+    text-align: center !important;
+    border-radius: 1px !important;
+    color: indigo !important;
+    font-size: 19px !important;
+    font-weight: 500 !important;
+    font-family: sans-serif !important;
+    border-bottom-color: rgb(140,158,255) !important;
+    border-bottom-style: groove !important;
+
 }
 
-.menu:after {
-  content: "]";
+.search-button {
+    float: right !important;
+    text-align: center !important;
 }
 
-.menu > li {
-  display: inline;
+span#result h4{
+    color: black;
+    font-weight: 400;
+    font-size: 15px !important;
+    line-height: normal !important;
+    text-align: left !important;
+    display: block;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+
+.cont {
+    width: 100% !important;
+    color:black !important;
 }
 
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+span#result br {
+    line-height: 5px !important;
+}
+
+#result {
+    height: auto;
+    padding: 10px;
+    font-family: 'Lato', sans-serif;
+    color:#000000 !important;
+    display: inline-block;
+    font-weight: 400;
+
+}
+
+p#results{
+    float: right !important;
+    display: inline;
+}
+
+.titles {
+    text-align: center;
+    color: ghostwhite !important;
+    font-family: sans-serif;
+}
+
+.for-now-card {
+    height: 500px;
+}
+
+.iconset {
+    width: 40px !important;
+    height: 40px !important;
+    display: inline-block !important;
+    padding: 5px;
+    float: left;
+
+}
+.icon-group {
+    display: inline-flex !important;
+    margin-left: auto !important;
+    margin-right:  auto !important;
+}
+.share {
+    width: 80% !important;
+    text-align: left !important;
+    display: flex !important;
+    color: black !important;
+    margin-left: auto !important;
+    margin-right:  auto !important;
+
+}
+
+.for-now-first-card {
+    height: 242px;
+}
+
+#myMap {
+    width:  auto;
+    height: inherit;
+    border: 0;
+}
+.gmnoprint {
+    display: none !important;
+}
+
+.weather-image {
+    width: 120px;
+    height:120px;
+    border: 0;
+    border-color: transparent;
+    background-image: url('icons/45.svg');
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+.first-res-con {
+    display: inline-block !important;
+    border: 0;
+    border-color: transparent !important;
+}
+
+
+@media (min-width: 1200px)
+.container {
+    width: 1170px;
+}
+
+@media (min-width: 992px)
+.container {
+    width: 970px;
+}
+@media (min-width: 768px)
+.container {
+    width: 750px;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }
