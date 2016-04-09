@@ -23,7 +23,10 @@
 .search-button {
     float: right !important;
     text-align: center !important;
+  
 }
+
+
 
 span#result h4{
     color: black;
@@ -32,6 +35,8 @@ span#result h4{
     line-height: normal !important;
     text-align: left !important;
     display: block;
+    margin-top: 50% !important;
+    width: 20px;
 }
 
 
@@ -61,35 +66,17 @@ p#results{
 
 .titles {
     text-align: center;
-    color: ghostwhite !important;
+    color: #fff !important;
     font-family: sans-serif;
+    background-color: black !important;
 }
 
-.for-now-card {
-    height: 500px;
-}
 
-.iconset {
-    width: 40px !important;
-    height: 40px !important;
-    display: inline-block !important;
-    padding: 5px;
-    float: left;
 
-}
-.icon-group {
-    display: inline-flex !important;
-    margin-left: auto !important;
-    margin-right:  auto !important;
-}
 .share {
-    width: 80% !important;
-    text-align: left !important;
-    display: flex !important;
-    color: black !important;
-    margin-left: auto !important;
-    margin-right:  auto !important;
-
+    text-align: center !important;
+    display: inline !important;
+    font-size: 50px;
 }
 
 .for-now-first-card {
@@ -97,8 +84,8 @@ p#results{
 }
 
 #myMap {
-    width:  auto;
-    height: inherit;
+    width:  100%;
+    height: 500px;
     border: 0;
 }
 .gmnoprint {
@@ -114,7 +101,7 @@ p#results{
     background-size: 50%;
     background-position: center;
     background-repeat: no-repeat;
-    
+
 }
 .first-res-con {
     display: inline-block !important;
@@ -124,21 +111,20 @@ p#results{
 
 
 @media (min-width: 1200px)
-.container {
-    width: 1170px;
+    .container {
+        width: 1170px;
 }
 
 @media (min-width: 992px)
-.container {
-    width: 970px;
+    .container {
+        width: 970px;
 }
 @media (min-width: 768px)
-.container {
-    width: 750px;
+    .container {
+        width: 750px;
 }
-.container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+
+.last {
+    display: inline;
+    
 }

@@ -1,106 +1,120 @@
 <!DOCTYPE html>
 <html ng-app="e-Weather">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My Weather App</title>
-<meta itemprop="name" content="myWeather App">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>My Weather App</title>
+        <meta itemprop="name" content="myWeather App">
         <meta itemprop="description" content="Current Weather Situation Of Any Location On Earth, Useful For Travellers, Checkout the link.">
         <meta itemprop="image" content="icons/8.svg">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="app.css">
-<link href='https://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
-<script src="https://apis.google.com/js/platform.js" async defer>
-            {parsetags: 'explicit'}
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+        <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="app.css">
+        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
+        <script src="https://apis.google.com/js/platform.js" async defer>
+            {
+                parsetags: 'explicit'
+            }
         </script>
 
- <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-</head>
-  <body ng-controller="WeatherSearch">
-            <br>
-            
-            <!-- Beginning Of Top Section, "The Search Bar"-->
-            <div  flex layout="row" layout-xs="column" class="container">
-                <md-input-container layout="row" class="md-warn search-bar md-whiteframe-z1">
-                    <label>TYPE A LOCATION TO SEARCH FOR WEATHER REPORT</label>
-                    <input ng-model="weatherSearchInput" ng-model-instant class="search-bar">
-                </md-input-container>
-                <md-button ng-click="srch()" class="md-whiteframe-z1 md-primary search-button">SEARCH</md-button>
-               
-            </div>
-            <!-- End Of Top Secton -->
+        <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+
+    <body ng-controller="WeatherSearch">
+        <br>
+
+        <!-- Beginning Of Top Section, "The Search Bar"-->
+        <div flex class="container">
+            <md-input-container layout="row" class="md-warn search-bar md-whiteframe-z1">
+                <label>TYPE A LOCATION TO SEARCH FOR WEATHER REPORT</label>
+                <input ng-model="weatherSearchInput" ng-model-instant class="search-bar">
+
+            </md-input-container>
+            <md-button ng-click="srch()" class="md-whiteframe-z1 md-primary search-button"><span class="sbutton">SEARCH</span></md-button>
+
+        </div>
+        <!-- End Of Top Secton -->
 
 
 
 
-            <!-- Beginnig of the results -->
-            <br>
-            <md-toolbar class="md-primary md-hue-3 titles"><h2>WEATHER REPORT</h2></md-toolbar>
-            <div flex layout="row" layout-xs="column" class="cont">
+        <!-- Beginnig of the results -->
+        <br>
+        <md-toolbar class="md-primary md-hue-3 titles">
+            <h2>WEATHER ANALYSIS</h2></md-toolbar>
+        <div flex layout="row" layout-xs="column" class="cont">
 
 
-                <!-- Results and Render -->
+            <!-- Results and Render -->
 
-                <md-card class="col-md-3">
-                    <md-toolbar class="titles md-hue-3"><h3>DETAILS</h3></md-toolbar>
-                    <md-content>
-                        <div>
-                            <md-card>
-                                <md-content id="result">
-                                    <!-- Weather Icon and Details Attached -->
-                                    <h2 class="first-res-con"> <img class="weather-image first-res-con" src="{{iconSet}}" alt="{{iconSetDesc}}"> &asymp; {{currTemp}} <sup>&#9679;C</sup><p style="text-transform: Capitalize;">{{weatherResults.weather[0].description }}</p></h2>
-                                    <h4 style="text-align: left; text-transform: Capitalize;">{{geoCoded.results[0].formatted_address}}</h4>
-                                    <h5>COORDS : <a>{{geoLat}}, {{geoLon}}</a></h5>
-                                    <h5>WIND SPEED : {{weatherResults.wind.speed}}</h5>
-                                    <h5>PRESSURE : {{weatherResults.main.pressure}}</h5>
-                                    <h5>HUMIDITY : {{weatherResults.main.humidity}}</h5>
-                                </md-content>
-                            </md-card>
-                        </div>
-                    </md-content>
-                </md-card>
-
+            <md-card layout="column" class="col-md-3">
+                <md-toolbar class="titles md-hue-3">
+                    <h3>DETAILS</h3></md-toolbar>
+                <div>
+                    <md-card>
+                        <md-content id="result">
+                            <!-- Weather Icon and Details Attached -->
+                            <h2 class="first-res-con"> <img class="weather-image first-res-con" src="{{iconSet}}" alt="{{iconSetDesc}}"> &asymp; {{currTemp}} <sup>&#9679;C</sup><p style="text-transform: Capitalize;">{{weatherResults.weather[0].description }}</p></h2>
+                            <h4 style="text-align: left; text-transform: Capitalize;">{{geoCoded.results[0].formatted_address}}</h4>
+                            <h5>COORDS : <a>{{geoLat}}, {{geoLon}}</a></h5>
+                            <h5>WIND SPEED : {{weatherResults.wind.speed}}</h5>
+                            <h5>PRESSURE : {{weatherResults.main.pressure}}</h5>
+                            <h5>HUMIDITY : {{weatherResults.main.humidity}}</h5>
+                        </md-content>
+                    </md-card>
+                </div>
+            </md-card>
 
 
 
-                <md-card class="for-now-card col-md-6">
 
-                    <md-toolbar class="titles md-primary md-hue-3"><h2>MAP VIEW</h2></md-toolbar>
-                    <div id='myMap'></div>
-                </md-card>
+            <md-card flex-50 class="col-md-6">
 
+                <md-toolbar class="titles md-primary md-hue-3">
+                    <h2>MAP</h2></md-toolbar>
+                <div id='myMap'></div>
+            </md-card>
+        </div>
 
-                <!-- Share Icons -->
-                <md-card flex class="col-md-2 last">
-                    <md-toolbar class="md-primary titles md-hue-3"><h3>SHARE</h3></md-toolbar>
-                    <a href="http://www.facebook.com/#" target="_blank"><md-button class="md-whiteframe-z2 share"><img src="./icons/facebook.png" class="iconset" alt="Share on Facebook">Facebook</md-button></a>
-                    <a href="http://plus.google.com/#" target="_blank"><md-button class="md-whiteframe-z2 share"><img src="./icons/g+.png" class="iconset" alt="Share on Google+">Google+</md-button></a> 
-                    <a href="http://twitter.com/#" target="_blank"><md-button class="md-whiteframe-z2 share"><img src="./icons/twitter.png" class="iconset" alt="Share on Twitter">Twitter</md-button></a>
-                    <a href="http://pinterest.com/#" target="_blank"><md-button class="md-whiteframe-z2 share"><img src="./icons/pinterest.png" class="iconset" alt="Share on Pinterest">Pinterest</md-button></a>
-                    <a href="http://linkedin.com/#" target="_blank"><md-button class="md-whiteframe-z2 share"><img src="./icons/linkedin.png" class="iconset" alt="Share on linkedin">Linkedin</md-button></a>
+        <!-- Share Icons -->
+        <div class="container">
+            <md-card class="col-md-2 last">
+                <md-toolbar class="md-primary titles md-hue-3">
+                    <h3>SHARE</h3></md-toolbar>
+                <a href="https://web.facebook.com/dialog/share?app_id=487534178111610&display=popup&href=http%3A%2F%2Ftodtribeofjudah.com%2Fweather%2F&redirect_uri=http%3A%2F%2Ftodtribeofjudah.com%2Fweather%2F&_rdr">
+                    <md-button class="md-whiteframe-z2 share"><i class="ion-social-facebook-outline"></i></md-button>
+                </a>
+                <a href="https://plus.google.com/share?url=http://todtribeofjudah.com/weather">
+                    <md-button class="md-whiteframe-z2 share"><i class="ion-social-googleplus-outline"></i></md-button>
+                </a>
+                <a href="http://twitter.com/#" target="_blank">
+                    <md-button class="md-whiteframe-z2 share"><i class="ion-social-twitter-outline"></i></md-button>
+                </a>
+                <a href="http://www.github.com/Just4Ease">
+                    <md-button class="md-whiteframe-z2 share"><i class="ion-social-github-outline"></i></md-button>
+                </a>
+            </md-card>
+        </div>
 
-                    <a href="http://www.github.com/Just4Ease"><md-button class="md-whiteframe-z2 share"><img src="icons/Github.png" alt="About share" class="iconset">About Author</md-button></a>
-                  
-                </md-card>
-            </div>
-               <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIdzxbd9ouVnupvSqEN3DTR-O3oLL05zo" async defer></script>
+    </body>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIdzxbd9ouVnupvSqEN3DTR-O3oLL05zo" async defer></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="app.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
+    <script>
+        var GhostScript = 'Hello, Site Console Crawler, Thanks For Checking This Project Out...\nFeel Free To Send Me Suggestions To Make This Application A Better One.\n Git: https://www.github.com/Just4Ease\nFacebook: http://www.facebook.com/Just4Ease\nTwitter:http://www.twitter.com/Just4Ease'
+    </script>
 
-        <script>
-            var GhostScript = 'Hello, Site Console Crawler, Thanks For Checking This Project Out...\nFeel Free To Send Me Suggestions To Make This Application A Better One.\n Git: https://www.github.com/Just4Ease\nFacebook: http://www.facebook.com/Just4Ease\nTwitter:http://www.twitter.com/Just4Ease'
- 	</script>
-</body>
-  <script src="bower_components/angular/angular.min.js"></script>
-  <script src="bower_components/angular-route/angular-route.min.js"></script>
-  <script src="bower_components/angular-material/angular-material.min.js"></script>
-  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-  <script src="app.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
 </html>
